@@ -1,0 +1,96 @@
+.blog {
+    .main {
+        .schero {
+            padding-top: calc(var(--height-header) + 70px);
+            padding-bottom: 92px;
+
+            .postnews {
+                &__list {
+                    margin-top: 48px;
+                }
+            }
+            @include sm {
+                padding-top: calc(var(--height-header) + 48px);
+                padding-bottom: 80px;
+                .textbox {
+                    gap: 16px;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            }
+        }
+        .scnews {
+            padding-top: 150px;
+            .postnews {
+                &__list {
+                    margin-top: 56px;
+                }
+            }
+
+            @include sm {
+                padding-top: 80px;
+                .textbox {
+                    gap: 24px;
+                    &__left,
+                    &__right {
+                        width: 100%;
+                    }
+                    &__left {
+                        text-align: center;
+                    }
+                    &__right {
+                        .tabs {
+                            flex-wrap: nowrap;
+                            justify-content: flex-start;
+                            overflow-x: scroll;
+                            scrollbar-width: none;
+                            margin: 0 calc(-1 * var(--gutter));
+
+                            .tab {
+                                &:first-child {
+                                    margin-left: var(--gutter);
+                                }
+                                &:last-child {
+                                    margin-right: var(--gutter);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            @include xs {
+                .postnews {
+                    &__list {
+                        margin-top: 24px;
+                    }
+                }
+                .textbox {
+                    &__right {
+                        .tabs {
+                            flex-wrap: wrap;
+                            flex-direction: column;
+
+                            margin: initial;
+                            overflow-x: initial;
+                            .tab {
+                                width: 100%;
+                                &:first-child {
+                                    margin-left: initial;
+                                }
+                                &:last-child {
+                                    margin-right: initial;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        margin-top: 80px;
+        @include sm {
+            margin-top: 80px;
+        }
+    }
+}

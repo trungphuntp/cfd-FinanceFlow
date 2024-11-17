@@ -1,0 +1,161 @@
+.headermenu {
+    --pd-item-menu: 14px;
+
+    &__list {
+        display: flex;
+        align-items: center;
+        margin-left: calc(-1 * var(--pd-item-menu));
+        &-item {
+            display: block;
+            height: 100%;
+            color: var(--white-color);
+            font-family: var(--font-medium);
+            font-size: var(--fz-text-menu);
+            line-height: var(--lh-text-menu);
+            letter-spacing: var(--ls-text-menu);
+            text-transform: uppercase;
+            padding: 14px;
+            &::after {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 1px;
+                background: var(--white-color);
+                transform: scaleX(0);
+                @include transition("transform var(--duration)");
+                transition-timing-function: var(--cubic);
+            }
+            &:hover,
+            &.--active {
+                &::after {
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+
+    @include sm {
+        --fz-header-menu: 1.8rem;
+    }
+    @include xs {
+        --fz-header-menu: 2.6rem;
+        --lh-header-menu: 1;
+    }
+    @include xxxs {
+        --fz-header-menu: 2rem;
+        --lh-header-menu: 1;
+    }
+}
+.header {
+    --line-color: #010d50;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: var(--max-width-page);
+    z-index: 750;
+    margin: 0 auto;
+    height: var(--height-header);
+    background: transparent;
+    @include transition("background var(--duration), height var(--duration)");
+    .container {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__left {
+        height: 100%;
+        @include mid(true);
+        display: flex;
+        gap: 32px;
+
+        &-logo {
+            flex-shrink: 0;
+        }
+        &-logomobile {
+            display: none;
+        }
+        &-line {
+            background: var(--line-color);
+            width: 1px;
+            height: 66px;
+        }
+    }
+    &__right {
+        @include mid(true);
+        &-btnmenumobile {
+            @include mid(true);
+            gap: 6px;
+            flex-direction: column;
+            display: none;
+            position: relative;
+            height: 45px;
+            width: 45px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            padding: 13px 10px;
+            cursor: pointer;
+
+            &.--active {
+                .line {
+                    transform-origin: right;
+                    &:nth-child(even) {
+                        @include hiddenItem(true);
+                    }
+                    &:first-child {
+                        transform: rotate(-45deg);
+                        translate: -3px 0px;
+                    }
+                    &:last-child {
+                        transform: rotate(45deg);
+                        translate: -3px 2px;
+                    }
+                }
+            }
+        }
+
+        .line {
+            width: 25px;
+            height: 2px;
+            transform-origin: right;
+            background: var(--white-color);
+
+            @include transition(
+                "opacity var(--duration),visibility var(--duration), transform var(--duration), translate var(--duration)"
+            );
+            transition-timing-function: var(--cubic);
+        }
+    }
+    @include md {
+        &__left {
+            gap: 20px;
+        }
+    }
+    @include sm {
+        &__left {
+            .headermenu {
+                display: none;
+            }
+            &-line {
+                display: none;
+            }
+            &-logo {
+                img {
+                    width: 136px;
+                }
+            }
+        }
+        &__right {
+            &-btn {
+                display: none;
+            }
+            &-btnmenumobile {
+                display: flex;
+            }
+        }
+    }
+    @include xxs {
+        &__left {
+        }
+    }
+}

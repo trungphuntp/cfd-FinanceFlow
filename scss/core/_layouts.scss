@@ -1,0 +1,43 @@
+html {
+    font-size: 62.5%; // 1rem = 10px
+}
+body {
+    width: 100%;
+    max-width: var(--max-width-page);
+    margin: auto;
+    background: var(--dark-blue-color);
+    scroll-behavior: smooth;
+    font-family: var(--font-regular);
+    font-size: var(--fz-body-1);
+    line-height: var(--lh-body-1);
+    letter-spacing: var(--ls-body-1);
+    color: var(--white-color);
+
+    @include customscroll(4px, var(--blue-color), var(--primary-color));
+
+    &.--disable-scroll {
+        height: 100vh;
+        overflow: hidden;
+    }
+    .container-fluid {
+        width: 100%;
+        max-width: var(--max-width-container-fluid);
+        padding-right: var(--pd-container);
+        padding-left: var(--pd-container);
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+    }
+    .container {
+        width: 100%;
+        max-width: var(--max-width-container);
+        padding-right: var(--pd-container);
+        padding-left: var(--pd-container);
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+    }
+    .main {
+        position: relative;
+    }
+}

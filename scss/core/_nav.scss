@@ -1,0 +1,46 @@
+.menumobile {
+    --pd-item-menu-mobile: 20px;
+    @include mid(true);
+    @include hiddenItem(true);
+    @include transition("opacity var(--duration), visibility var(--duration)");
+    position: fixed;
+    flex-direction: column;
+    inset: 0;
+    z-index: 700;
+    background: var(--dark-blue-color);
+    &.--active {
+        @include hiddenItem(false);
+    }
+    .headermenu {
+        z-index: 100;
+        &__list {
+            flex-direction: column;
+            margin-top: calc(-1 * var(--pd-item-menu-mobile));
+            &-item {
+                padding: var(--pd-item-menu-mobile) 0;
+            }
+        }
+    }
+    &__cta {
+        z-index: 100;
+        margin-top: var(--pd-item-menu-mobile);
+    }
+    &__blur {
+        pointer-events: none;
+        max-width: initial;
+        width: 200%;
+        @include mid;
+    }
+    @include xxxs {
+        --pd-item-menu-mobile: 15px;
+    }
+    @include landscape {
+        &__blur {
+            width: 120%;
+        }
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding-top: var(--height-header);
+        justify-content: flex-start;
+    }
+}

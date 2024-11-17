@@ -1,0 +1,107 @@
+:root {
+    /* MaxWidth Of Page, Container-Fluid, Container, Gutter*/
+
+    --max-width-page: 2560px;
+    --max-width-container-fluid: 1920px;
+    --max-width-container: calc(1198px + calc(var(--pd-container) * 2));
+
+    --pd-container: 28px; //
+    --gutter: 26px;
+
+    /* Colors Variable Demo*/
+    --primary-color: #0328ee;
+    --white-color: #ffffff;
+    --dark-blue-color: #010725;
+    --blue-color: #00116a;
+    --green-color: #2dd784;
+
+    --black-color: #000;
+    --light-black-color: rgba(255, 255, 255, 0.1);
+    --error-color: #ee0303;
+
+    // Fontsize - Lineheight Variable Demo
+    --fz-h1: 6.6rem;
+    --lh-h1: 1.215;
+    --ls-h1: -0.1rem;
+
+    --fz-h2: 4.2rem;
+    --lh-h2: 1.31;
+    --ls-h2: 0rem;
+
+    --fz-h3: 2.2rem;
+    --lh-h3: 1.41;
+    --ls-h3: 0rem;
+
+    --fz-label: 1.8rem;
+    --lh-label: 1.45;
+    --ls-label: 0.09rem;
+
+    --fz-btn: 1.6rem;
+    --lh-btn: 1;
+    --ls-btn: 0.16rem;
+
+    --fz-body-1: 1.8rem;
+    --lh-body-1: 1.78;
+    --ls-body-1: 0rem;
+
+    --fz-body-2: 1.6rem;
+    --lh-body-2: 1.63;
+    --ls-body-2: 0rem;
+
+    --fz-text-menu: 1.4rem;
+    --lh-text-menu: 1.15;
+    --ls-text-menu: 0.14rem;
+
+    --fz-tag: 1.4rem;
+    --lh-tag: 1.29;
+    --ls-tag: 0.07rem;
+
+    // font family
+
+    --font-regular: dsr;
+    --font-bold: dsb;
+    --font-medium: dsm;
+    --font-italic: dsi;
+
+    // General Variable Demo
+    --height-header: 100px;
+    --height-header-scroll: 80px;
+    --height-tag: 38px;
+
+    // Timing Transition Variable Demo
+    --duration: 0.4s;
+    --cubic: cubic-bezier(0.59, 0.29, 0.15, 0.93);
+
+    // Responsive
+    @include md {
+        --container-max-width: 1140px;
+    }
+    @include sm {
+        --container-max-width: 960px; // hoặc max-width: 100% tuỳ yêu cầu
+    }
+    @include xs {
+        --container-max-width: 100%; // hoặc max-width: 100% tuỳ yêu cầu
+        --gutter: 16px;
+        --height-header: 73px;
+        --pd-container: 15px;
+
+        // Fontsize - Lineheight Variable Demo
+        --fz-h1: 3.8rem;
+        --lh-h1: 1.211;
+
+        --fz-h2: 2.8rem;
+        --lh-h2: 1.286;
+
+        --fz-h3: 2.2rem;
+
+        --fz-label: 1.4rem;
+        --lh-label: 1.29;
+        --ls-label: 0.07rem;
+
+        --fz-body-1: 1.6rem;
+        --lh-body-1: 1.63;
+    }
+    @include xxs {
+        --container-max-width: 100%;
+    }
+}

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, user-scalable=0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>FinanceFlow - CFD Circle | Đào tạo lập trình thực chiến</title>
+
+        <meta
+            name="title"
+            content="FinanceFlow - CFD Circle | Đào tạo lập trình thực chiến"
+        />
+
+        <meta
+            name="description"
+            content="FinanceFlow là dự án được hoàn thành trong khoá học lập trình front-end Web Responsive tại CFD Circle"
+        />
+        <meta name="keyword" content="" />
+
+        <link rel="canonical" href="https://cfdcircle.vn" />
+        <link rel="icon" href="favicon.ico" />
+
+        <!-- Meta Tag Facebook -->
+
+        <meta property="og:locale" content="en" />
+        <meta property="og:type" content="article" />
+        <meta
+            property="og:title"
+            content="FinanceFlow - CFD Circle | Đào tạo lập trình thực chiến"
+        />
+        <meta
+            property="og:description"
+            content="FinanceFlow là dự án được hoàn thành trong khoá học lập trình front-end Web Responsive tại CFD Circle"
+        />
+        <meta property="og:url" content="https://cfdcircle.vn" />
+        <meta property="og:site_name" content="CFD Circle" />
+        <meta property="og:image" content="./img/hinh-thumbnail-facebook.jpg" />
+
+        <!-- Meta Tag Twitter -->
+        <meta name="twitter:card" content="" />
+        <meta name="twitter:site" content="" />
+        <meta name="twitter:title" content="" />
+        <meta name="twitter:description" content="" />
+        <meta name="twitter:image" content="" />
+
+        <style>
+            /* CSS Loading Here */
+            :root {
+                --fz-percent: 1.6rem;
+                --lh-percent: 1;
+                --color-percent: #fff;
+                --duration-loading: 0.4s;
+                --bg-loading: #010725;
+                --line-loading: #0328ee;
+                --line-progress-loading: #fff;
+            }
+            .loading {
+                position: fixed;
+                z-index: 999;
+                inset: 0;
+                background: var(--bg-loading);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 13px;
+
+                opacity: 1;
+                visibility: visible;
+            }
+            .loading.--hide {
+                transition: opacity var(--duration-loading),
+                    visibility var(--duration-loading);
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+            .line {
+                width: 160px;
+                height: 4px;
+                background: var(--line-loading);
+                border-radius: 999px;
+                overflow: hidden;
+            }
+            .line .line__progress {
+                background: var(--line-progress-loading);
+                width: 0%;
+                height: 100%;
+            }
+            .percent {
+                font-family: var(--font-bold);
+                color: var(--color-percent);
+                font-size: var(--fz-percent);
+                line-height: var(--lh-percent);
+            }
+            @media screen and (max-width: 991.98px) {
+                .line {
+                    width: 140px;
+                }
+            }
+            @media screen and (max-width: 767.98px) {
+                .line {
+                    width: 130px;
+                }
+            }
+        </style>
+
+        <link rel="stylesheet" href="dest/style.min.css" />
+        <link rel="stylesheet" href="dest/fonts.css" />
+    </head>
+
+    <body class="about">
+        <!-- progress bar -->
+        <div class="progressbar">
+            <div class="line"></div>
+        </div>
+        <!-- loading -->
+        <div class="loading">
+            <div class="line">
+                <div class="line__progress"></div>
+            </div>
+            <span class="percent">0%</span>
+        </div>
+        <!-- header -->
+        <header class="header">
+            <div class="container">
+                <div class="header__left">
+                    <a class="header__left-logo" href="./">
+                        <img src="./img/i-logo.svg" alt="" />
+                    </a>
+
+                    <div class="header__left-line"></div>
+                    <nav class="headermenu">
+                        <ul class="headermenu__list">
+                            <li>
+                                <a
+                                    class="headermenu__list-item"
+                                    href="./index.html"
+                                    >Home</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="headermenu__list-item --active"
+                                    href="./about.html"
+                                    >About</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="headermenu__list-item"
+                                    href="./pricing.html"
+                                    >Pricing</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="headermenu__list-item"
+                                    href="./tokens.html"
+                                    >Tokens</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="headermenu__list-item"
+                                    href="./blog.html"
+                                    >Blog</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    class="headermenu__list-item"
+                                    href="./contactus.html"
+                                    >contact us</a
+                                >
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header__right">
+                    <a
+                        href="https://cfdcircle.vn/"
+                        target="_blank"
+                        class="btn --small header__right-btn"
+                    >
+                        Download App
+                    </a>
+                    <button class="header__right-btnmenumobile">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <!-- menu mobile -->
+        <div class="menumobile" data-lenis-prevent>
+            <nav class="headermenu">
+                <ul class="headermenu__list">
+                    <li>
+                        <a class="headermenu__list-item" href="./index.html"
+                            >Home</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            class="headermenu__list-item --active"
+                            href="./about.html"
+                            >About</a
+                        >
+                    </li>
+                    <li>
+                        <a class="headermenu__list-item" href="./pricing.html"
+                            >Pricing</a
+                        >
+                    </li>
+                    <li>
+                        <a class="headermenu__list-item" href="./tokens.html"
+                            >Tokens</a
+                        >
+                    </li>
+                    <li>
+                        <a class="headermenu__list-item" href="./blog.html"
+                            >Blog</a
+                        >
+                    </li>
+                    <li>
+                        <a class="headermenu__list-item" href="./contactus.html"
+                            >contact us</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+            <div class="menumobile__cta">
+                <a href="https://cfdcircle.vn/" target="_blank" class="btn"
+                    >Download App</a
+                >
+            </div>
+            <img class="menumobile__blur" src="./img/mobile-blur.png" alt="" />
+        </div>
+        <!-- main -->
+        <main class="main">
+            <!-- section  hero -->
+            <section class="schero">
+                <div class="container">
+                    <div class="textbox --aligncenter">
+                        <h1 class="heading">About Finance Flow</h1>
+                        <p class="desc">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Feugiat nulla suspendisse tortor aenean dis
+                            placerat. Scelerisque imperdiet vitae dolor non
+                            aliquam. Malesuada.
+                        </p>
+                    </div>
+                    <div class="schero__content">
+                        <div class="textbox --row">
+                            <div class="textbox__left">
+                                <h2 class="heading --h2">
+                                    What drives Finance Flow?
+                                </h2>
+                            </div>
+                            <div class="textbox__right">
+                                <p class="desc">
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing elit. Feugiat nulla suspendisse
+                                    tortor aene.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="schero__content-list">
+                            <div class="smallcard --row">
+                                <div class="smallcard__icon">
+                                    <img src="./img/i-icon-card-5.svg" alt="" />
+                                </div>
+                                <div class="smallcard__content">
+                                    <h4 class="smallcard__content-label">
+                                        Open Source
+                                    </h4>
+                                    <p class="smallcard__content-desc">
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Et nibh urna in proin
+                                        dui purus bibendum cras. Morbi cursus
+                                        nunc.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="smallcard --row">
+                                <div class="smallcard__icon">
+                                    <img src="./img/i-icon-card-6.svg" alt="" />
+                                </div>
+                                <div class="smallcard__content">
+                                    <h4 class="smallcard__content-label">
+                                        worldwide
+                                    </h4>
+                                    <p class="smallcard__content-desc">
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Et nibh urna in proin
+                                        dui purus bibendum cras. Morbi cursus
+                                        nunc.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="smallcard --row">
+                                <div class="smallcard__icon">
+                                    <img src="./img/i-icon-card-7.svg" alt="" />
+                                </div>
+                                <div class="smallcard__content">
+                                    <h4 class="smallcard__content-label">
+                                        Transparent
+                                    </h4>
+                                    <p class="smallcard__content-desc">
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Et nibh urna in proin
+                                        dui purus bibendum cras. Morbi cursus
+                                        nunc.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="smallcard --row">
+                                <div class="smallcard__icon">
+                                    <img src="./img/i-icon-card-8.svg" alt="" />
+                                </div>
+                                <div class="smallcard__content">
+                                    <h4 class="smallcard__content-label">
+                                        Community Driven
+                                    </h4>
+                                    <p class="smallcard__content-desc">
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Et nibh urna in proin
+                                        dui purus bibendum cras. Morbi cursus
+                                        nunc.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="schero__blur" src="./img/darkblur.png" alt="" />
+                </div>
+            </section>
+
+            <!-- section scstory -->
+            <section class="scstory">
+                <div class="scstory__left" data-padding="left">
+                    <div class="textbox">
+                        <h2 class="heading --h2">Our story</h2>
+                        <p class="desc">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Parturient lorem purus justo, ultricies.
+                            Sollicitudin odio elementum urna placerat lacus,
+                            vulputate. Non malesuada viverra et ultrices cras.
+                            Tincidunt tempor, blandit augue ac feugiat. Praesent
+                            arcu tempus ullamcorper quisque in. Magna fermentum,
+                            lacus, fermentum arcu.
+                            <br />
+                            <br />
+                            Vulputate pellentesque proin facilisis dignissim
+                            gravida sed faucibus nunc. Nunc eget pharetra, in
+                            vitae porta lacus. Elit in nisl, in quis nulla
+                            tellus suscipit id. Semper velit odio cras pretium
+                            tristique habitant. Elit eu penatibus congue orci
+                            turpis. Enim diam id.
+                        </p>
+                    </div>
+                    <div class="textbox">
+                        <h2 class="heading --h2">Our mission</h2>
+                        <p class="desc">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Parturient lorem purus justo, ultricies.
+                            Sollicitudin odio elementum urna placerat lacus,
+                            vulputate. Non malesuada viverra et ultrices cras.
+                            Tincidunt tempor, blandit augue ac feugiat. Praesent
+                            arcu tempus ullamcorper quisque in. Magna fermentum,
+                            lacus, fermentum arcu.
+                            <br />
+                            <br />
+                            Vulputate pellentesque proin facilisis dignissim
+                            gravida sed faucibus nunc. Nunc eget pharetra, in
+                            vitae porta lacus. Elit in nisl, in quis nulla
+                            tellus suscipit id. Semper velit odio cras pretium
+                            tristique habitant. Elit eu penatibus congue orci
+                            turpis. Enim diam id.
+                        </p>
+                    </div>
+                </div>
+                <div class="scstory__right">
+                    <picture>
+                        <source
+                            media="(max-width:991.98px)"
+                            srcset="./img/planet.png"
+                        />
+                        <img src="./img/img-story.jpg" alt="" />
+                    </picture>
+                </div>
+            </section>
+
+            <!-- section timeline -->
+
+            <section class="sctimeline">
+                <div class="container">
+                    <div class="sctimeline__left">
+                        <div class="textbox">
+                            <h2 class="heading --h2">Timeline</h2>
+                            <p class="desc">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Suspendisse varius enim in eros
+                                elementum tristique. Duis cursus, mi quis
+                                viverra ornare, eros dolor interdum nulla, ut
+                                commodo diam libero vitae erat.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="sctimeline__right">
+                        <div class="sctimeline__right-item">
+                            <span class="year">2014</span>
+                            <h4 class="title">Announcement</h4>
+                            <p class="desc">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Sed mattis vivamus at mattis
+                                bibendum congue cras id interdum. Risus leo et.
+                            </p>
+                        </div>
+                        <div class="sctimeline__right-item">
+                            <span class="year">2016</span>
+                            <h4 class="title">Announcement</h4>
+                            <p class="desc">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Sed mattis vivamus at mattis
+                                bibendum congue cras id interdum. Risus leo et.
+                            </p>
+                        </div>
+                        <div class="sctimeline__right-item">
+                            <span class="year">2018</span>
+                            <h4 class="title">Announcement</h4>
+                            <p class="desc">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Sed mattis vivamus at mattis
+                                bibendum congue cras id interdum. Risus leo et.
+                            </p>
+                        </div>
+                        <div class="sctimeline__right-item">
+                            <span class="year">2022</span>
+                            <h4 class="title">Announcement</h4>
+                            <p class="desc">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Sed mattis vivamus at mattis
+                                bibendum congue cras id interdum. Risus leo et.
+                            </p>
+                        </div>
+                        <div class="sctimeline__right-item">
+                            <span class="year">2014</span>
+                            <h4 class="title">Announcement</h4>
+                            <p class="desc">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Sed mattis vivamus at mattis
+                                bibendum congue cras id interdum. Risus leo et.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- section team -->
+            <section class="scteam">
+                <div class="container">
+                    <div class="textbox --row">
+                        <div class="textbox__left">
+                            <h2 class="heading --h2">Our Team</h2>
+                        </div>
+                        <div class="textbox__right">
+                            <p class="desc">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Parturient lorem purus justo,
+                                ultricies.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="scteam__list">
+                        <div class="scteam__list-item">
+                            <div class="img">
+                                <img src="./img/team1.jpg" alt="" />
+                            </div>
+                            <div class="content">
+                                <h4 class="name">John Carter</h4>
+                                <p class="role">CEO & CO-Founder</p>
+                            </div>
+                        </div>
+                        <div class="scteam__list-item">
+                            <div class="img">
+                                <img src="./img/team2.jpg" alt="" />
+                            </div>
+                            <div class="content">
+                                <h4 class="name">Sophie Moore</h4>
+                                <p class="role">Community Lead</p>
+                            </div>
+                        </div>
+                        <div class="scteam__list-item">
+                            <div class="img">
+                                <img src="./img/team3.jpg" alt="" />
+                            </div>
+                            <div class="content">
+                                <h4 class="name">Alex Turner</h4>
+                                <p class="role">Operations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- section investors -->
+            <section class="scinvestors">
+                <div class="container">
+                    <div class="showlogos">
+                        <div class="textbox --aligncenter">
+                            <h2 class="heading --h2">Investors</h2>
+                            <p class="desc">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Parturient lorem purus justo,
+                                ultricies.
+                            </p>
+                        </div>
+                        <div class="showlogos__list">
+                            <img
+                                src="./img/i-logo-featured-1.svg"
+                                alt=""
+                                class="showlogos__list-item"
+                            />
+                            <img
+                                src="./img/i-logo-featured-2.svg"
+                                alt=""
+                                class="showlogos__list-item"
+                            />
+                            <img
+                                src="./img/i-logo-featured-3.svg"
+                                alt=""
+                                class="showlogos__list-item"
+                            />
+                            <img
+                                src="./img/i-logo-featured-4.svg"
+                                alt=""
+                                class="showlogos__list-item"
+                            /><img
+                                src="./img/i-logo-featured-5.svg"
+                                alt=""
+                                class="showlogos__list-item"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- popup video -->
+            <div class="popupvideo">
+                <div class="popupvideo__inner">
+                    <div class="popupvideo__inner-frame">
+                        <iframe
+                            class="frame"
+                            width="100%"
+                            height="100%"
+                            src="https://www.youtube.com/embed/abPmZCZZrFA?si=FeK7mtjiTnesgF8V"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                        ></iframe>
+                        <img class="close" src="./img/close.svg" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="opacityblack"></div>
+            <!-- message success -->
+            <div class="messagesuccess" data-lenis-prevent>
+                <div class="messagesuccess__inner">
+                    <div class="messagesuccess__top">
+                        <img
+                            class="messagesuccess__top-checked"
+                            src="./img/checkcirclemessage.svg"
+                            alt=""
+                        />
+                    </div>
+                    <div class="messagesuccess__body">
+                        <h4 class="messagesuccess__body-title heading --h3">
+                            success!
+                        </h4>
+                        <p class="messagesuccess__body-desc">
+                            Your invitation has been sent successfully!
+                        </p>
+                        <button class="btn">Got it!</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__top">
+                    <a href="./index.html" class="footer__top-logo">
+                        <img src="./img/i-logo.svg" alt="" />
+                    </a>
+                    <div class="footer__top-social">
+                        <a
+                            target="_blank"
+                            href="https://www.instagram.com/trungphuntp/"
+                        >
+                            <img src="./img/i-insta.svg" alt="" />
+                        </a>
+                        <a
+                            target="_blank"
+                            href="https://www.facebook.com/trungphuntp/"
+                        >
+                            <img src="./img/i-facebook.svg" alt="" />
+                        </a>
+                        <a target="_blank" href="https://cfdcircle.vn/">
+                            <img src="./img/i-in.svg" alt="" />
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__center">
+                    <div class="footer__center-left">
+                        <h4 class="label">Menu</h4>
+                        <ul class="list">
+                            <li>
+                                <a href="./index.html" class="item">home</a>
+                            </li>
+                            <li>
+                                <a href="./tokens.html" class="item">tokens</a>
+                            </li>
+                            <li>
+                                <a href="./about.html" class="item">About</a>
+                            </li>
+                            <li><a href="./blog.html" class="item">blog</a></li>
+                            <li>
+                                <a href="./pricing.html" class="item"
+                                    >pricing</a
+                                >
+                            </li>
+                            <li>
+                                <a href="./contactus.html" class="item">
+                                    contact us</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__center-right">
+                        <div class="textbox">
+                            <h3 class="label">Download our Application</h3>
+                            <p class="desc">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Mauris sed nulla integer
+                            </p>
+                            <div class="btngroup">
+                                <a
+                                    class="btn"
+                                    target="_blank"
+                                    href="https://cfdcircle.vn/"
+                                >
+                                    <div class="btn__icon">
+                                        <img
+                                            class="btn__icon-normal"
+                                            src="./img/i-iphone.svg"
+                                            alt=""
+                                        />
+                                        <img
+                                            class="btn__icon-hover"
+                                            src="./img/i-iphone-hover.svg"
+                                            alt=""
+                                        />
+                                    </div>
+                                    App Store
+                                </a>
+                                <a
+                                    class="btn"
+                                    target="_blank"
+                                    href="https://cfdcircle.vn/"
+                                >
+                                    <div class="btn__icon">
+                                        <img
+                                            class="btn__icon-normal"
+                                            src="./img/i-CHplay.svg"
+                                            alt=""
+                                        />
+                                        <img
+                                            class="btn__icon-hover"
+                                            src="./img/i-CHplay-hover.svg"
+                                            alt=""
+                                        />
+                                    </div>
+                                    PLAY STORE
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <span class="footer__bottom-copy"
+                        >© 2024 CFD Circle, Inc.
+                    </span>
+                    <div class="footer__bottom-gotop">
+                        <img src="./img/i-backtotop.svg" alt="" />
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Javascript -->
+        <script type="text/javascript" src="dest/jsmain.min.js"></script>
+        <script type="text/javascript" src="dest/main.js"></script>
+    </body>
+</html>

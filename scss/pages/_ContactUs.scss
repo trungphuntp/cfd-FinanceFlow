@@ -1,0 +1,295 @@
+.contactus {
+    // sua lai trang contant
+    .main {
+        overflow: hidden;
+        .schero {
+            --fz-text: 1.8rem;
+            --lh-text: 1.444;
+            --ls-text: 0.09rem;
+
+            padding-top: calc(var(--height-header) + 80px);
+            &__content {
+                margin-top: 52px;
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                gap: var(--gutter);
+                &-left {
+                    grid-column: 1/ 9;
+                    padding-right: 36px;
+                    .form {
+                        display: grid;
+                        gap: 32px 25px;
+                        grid-template-columns: 1fr 1fr;
+                        .formgroup {
+                            position: relative;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 12px;
+                            grid-column: span 1;
+                            &.--textarea {
+                                grid-column: span 2;
+                            }
+
+                            label {
+                                font-family: var(--font-bold);
+                                text-transform: uppercase;
+                                font-size: var(--fz-text);
+                                line-height: var(--lh-text);
+                                letter-spacing: var(--ls-text);
+                            }
+                            input {
+                                color: var(--white-color);
+                                background: var(--blue-color);
+                                font-size: var(--fz-text);
+                                border-radius: 999px;
+                                max-width: 364px;
+                                height: 68px;
+                                padding: 0 25px;
+                                overflow: hidden;
+                                outline: 1px solid transparent;
+                                @include transition("outline var(--duration)");
+                                transition-timing-function: calc(--cubic);
+
+                                &:focus {
+                                    outline-color: var(--white-color);
+                                }
+                                &:not(:placeholder-shown) {
+                                    outline-color: var(--primary-color);
+                                }
+
+                                &::placeholder {
+                                    color: var(--white-color);
+                                    font-size: var(--fz-text);
+                                }
+                            }
+
+                            textarea {
+                                resize: none;
+                                color: var(--white-color);
+                                background: var(--blue-color);
+                                border-radius: 14px;
+                                max-width: 753px;
+                                height: 162px;
+                                padding: 20px 25px;
+                                outline: 1px solid transparent;
+                                @include transition("outline var(--duration)");
+                                @include customscroll(
+                                    4px,
+                                    var(--blue-color),
+                                    var(--primary-color)
+                                );
+
+                                &:focus {
+                                    outline-color: var(--white-color);
+                                }
+                                &::placeholder {
+                                    color: var(--white-color);
+                                    font-size: var(--fz-text);
+                                }
+                                &:not(:placeholder-shown) {
+                                    outline-color: var(--primary-color);
+                                }
+                            }
+                            &.--error {
+                                input,
+                                textarea {
+                                    outline-color: var(--error-color);
+                                }
+                            }
+                            .message {
+                                position: absolute;
+                                bottom: -26px;
+                                font-size: 1.4rem;
+                                color: var(--error-color);
+                            }
+                        }
+                        .btn {
+                            margin-top: 8px;
+                        }
+                    }
+                }
+                &-right {
+                    grid-column: 9/13;
+                    .listcontent {
+                        margin-top: 36px;
+                        &__item {
+                            &-icon {
+                                height: 36px;
+                                width: 36px;
+                                border-radius: 50%;
+                            }
+                            &-desc {
+                                font-family: var(--font-medium);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__blur {
+                max-width: initial;
+                position: absolute;
+                z-index: -1;
+                right: -50%;
+                top: -50%;
+                transform: translate(-5%, -15%);
+                pointer-events: none;
+            }
+            @include sm {
+                &__content {
+                    &-left {
+                        grid-column: 1/13;
+                        padding-right: 0;
+                        .form {
+                            .formgroup {
+                                input,
+                                textarea {
+                                    max-width: 100%;
+                                }
+                            }
+                            .btn {
+                                margin-top: 0px;
+                            }
+                        }
+                    }
+                    &-right {
+                        grid-column: 1/13;
+                        padding-top: 45px;
+                        .textbox {
+                            .desc {
+                                margin-top: 20px;
+                            }
+                            .listcontent {
+                                margin-top: 34px;
+                            }
+                        }
+                    }
+                }
+            }
+            @include xs {
+                padding-top: calc(var(--height-header) + 48px);
+
+                &__content {
+                    &-left {
+                        .heading {
+                            margin-bottom: 26px;
+                        }
+                        grid-column: 1/13;
+                        padding-right: 0;
+                        .form {
+                            gap: 18px;
+
+                            .formgroup {
+                                grid-column: span 2;
+                                input,
+                                textarea {
+                                    max-width: 100%;
+                                }
+                                .message {
+                                    position: initial;
+                                }
+                            }
+                        }
+                    }
+                    &-right {
+                        grid-column: 1/13;
+                    }
+                }
+                &__blur {
+                    transform: translate(30%, 0%);
+                }
+            }
+        }
+        .scfaq {
+            --fz-title-faq: 2.8rem;
+            --lh-title-faq: 1.071;
+            --ls-title-faq: 0.028rem;
+
+            padding-top: 120px;
+
+            &__content {
+                max-width: 790px;
+                margin: 80px auto 0;
+                &-item {
+                    border-bottom: 1px solid rgba($color: #fff, $alpha: 0.2);
+                    padding: 32px 8px;
+                    &.--active {
+                        .headitem {
+                            &__icon {
+                                &-line {
+                                    &:last-child {
+                                        position: absolute;
+                                        transform: rotate(0deg);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .headitem {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 12px;
+                        cursor: pointer;
+                        font-family: var(--font-bold);
+                        font-size: var(--fz-title-faq);
+                        line-height: var(--lh-title-faq);
+                        letter-spacing: var(--ls-title-faq);
+                        @include transition("color var(--duration)");
+                        &:hover {
+                            color: var(--primary-color);
+                            .headitem__icon {
+                                &-line {
+                                    background: var(--primary-color);
+                                }
+                            }
+                        }
+                        &__icon {
+                            position: relative;
+                            width: 27px;
+                            height: 27px;
+                            @include mid(true);
+                            &-line {
+                                width: 100%;
+                                height: 2px;
+                                background: var(--white-color);
+                                border-radius: 999px;
+                                @include transition(
+                                    "transform var(--duration), background var(--duration)"
+                                );
+                                &:last-child {
+                                    position: absolute;
+                                    transform: rotate(90deg);
+                                }
+                            }
+                        }
+                    }
+                    .bodyitem {
+                        height: 0;
+                        overflow: hidden;
+                        @include transition(
+                            "height var(--duration), margin var(--duration)"
+                        );
+                    }
+                }
+            }
+            @include sm {
+                padding-top: 50px;
+                &__content {
+                    margin-top: 22px;
+                    max-width: 100%;
+                }
+            }
+
+            @include xs {
+                --fz-title-faq: 1.8rem;
+                --lh-title-faq: 1.444;
+            }
+        }
+    }
+    .footer {
+        @include xs {
+            margin-top: 24px;
+        }
+    }
+}
